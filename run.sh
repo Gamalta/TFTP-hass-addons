@@ -2,6 +2,6 @@
 
 echo "Starting server."
 echo "Sharing files:"
-ls /share/srv/tftp
+ls /tftpboot
 
-in.tftpd -L --secure /share/srv/tftp
+in.tftpd -L -vvv -u ftp --secure /tftpboot
