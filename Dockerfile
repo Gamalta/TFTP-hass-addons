@@ -1,13 +1,22 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-RUN apk add --no-cache tftp-hpa && \
-    mkdir -p -m 0755 /tftpboot && \
-    find /tftpboot -type f -exec chmod 444 {} \;  && \
-    find /tftpboot -mindepth 1 -type d -exec chmod 555 {} \;
+# Install tftp-hpa
+RUN apk add --no-cache tftp-hpa tree
 
-# Copy data for add-on
-COPY run.sh /
-RUN chmod a+x /run.sh
+# Create tftp server directory, system group and user own tftp server directory
+RUN mkdir -p -m 0755 /srv/tftp && \
+    addgroup -S tftpd && \
+    adduser -s /bin/false -S -D -H -h /srv/tftp -G tftpd tftpd
 
-CMD [ "/run.sh" ]
+# Copy start script
+COPY start.sh /
+
+# Make start.sh executable
+RUN chmod a+x /start.sh
+
+# Exposer le port 69/udp
+EXPOSE 69/udp
+
+# Start tftp server
+CMD [ "/start.sh" ]
