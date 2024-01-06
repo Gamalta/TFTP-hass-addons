@@ -10,7 +10,5 @@ arch:
   - armv7
   - i386
 
-map: ["share"]
-
 ports:
   69/udp: 69
