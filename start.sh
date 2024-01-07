@@ -16,6 +16,8 @@ while read -r input; do
     input=$(bashio::jq "${input}" '.')
     bashio::log.info "Read alias: $input"
 
+    ADRESS_MAC=$(bashio::config 'adress_mac')
+
     for config in $(bashio::config 'configs|keys'); do
         ID=$(bashio::config "configs[${config}].id")
         GRUB_DEFAULT=$(bashio::config "configs[${config}].grub_default")
@@ -30,5 +32,8 @@ while read -r input; do
         sed -i "s/^set timeout=.*/set timeout=$GRUB_TIMEOUT/" /srv/tftp/grub.cfg
 
         bashio::log.info "The grub.cfg has been updated successfully to $ID"
+        wakeonlan $ADRESS_MAC
+        bashio::log.info "Sending wake on lan magic packet to $ADRESS_MAC"
+
     done
 done

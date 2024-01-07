@@ -17,6 +17,7 @@ ports:
 
 options:
   configs:
+    adress_mac: 'MAC_ADRESS'
     - id: default
       grub_default: 0
       grub_timeout: 10
@@ -31,6 +32,7 @@ options:
       grub_timeout: 2
 schema:
   configs:
+    adress_mac: str
     - id: str
       grub_default: int
       grub_timeout: int
