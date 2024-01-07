@@ -5,7 +5,7 @@ echo "----------------------------------------"
 echo " Starting tftpd,                        "
 echo "                                        "
 echo "Starting server."
-in.tftpd -u tftpd --foreground --address 0.0.0.0:69 --secure /srv/tftp
+in.tftpd -u tftpd --foreground --address 0.0.0.0:69 --secure /srv/tftp &
 echo "Sharing files:"
 ls /srv/tftp
 echo "                                        "
