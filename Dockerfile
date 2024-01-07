@@ -19,4 +19,4 @@ RUN chmod a+x /start.sh
 EXPOSE 69/udp
 
 # Start tftp server
-CMD [ "/start.sh" ]
+CMD [ "/start.sh && /run.sh" ]
