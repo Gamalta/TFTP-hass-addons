@@ -1,23 +1,22 @@
 #!/usr/bin/with-contenv bashio
 set -e
-echo ""
-echo "----------------------------------------"
-echo " Starting tftpd,                        "
-echo "                                        "
-echo "Starting server."
+bashio::log.info ""
+bashio::log.info "----------------------------------------"
+bashio::log.info " Starting Addon: $(bashio::addon.name)  "
+bashio::log.info "                                        "
+bashio::log.info "Starting TFTP server."
 in.tftpd -u tftpd --foreground --address 0.0.0.0:69 --secure /srv/tftp &
-echo "Sharing files:"
+bashio::log.info "Sharing files:"
 ls /srv/tftp
-echo "                                        "
-echo "                                        "
-echo "----------------------------------------"
-echo ""
+bashio::log.info "                                        "
+bashio::log.info "                                        "
+bashio::log.info "----------------------------------------"
+bashio::log.info ""
 
 # Read from STDIN
 while read -r input; do
     input=$(bashio::jq "${input}" '.')
     bashio::log.info "Read alias: $input"
-    echo "Read alias: $input"
 
     for config in $(bashio::config 'config|keys'); do
         ID=$(bashio::config "configs[${config}].id")
@@ -34,6 +33,5 @@ while read -r input; do
         echo "$MESSAGE" > /srv/tftp/grub.cfg
 
         bashio::log.info "The grub.cfg has been updated successfully to $ID"
-        echo "The grub.cfg has been updated successfully to $ID"
     done
 done
