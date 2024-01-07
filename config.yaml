@@ -1,8 +1,10 @@
 name: "TFTP server"
-description: "TFTP server"
+description: "Expose a chosen grub configuration on a TFTP server"
 version: "1.0.0"
-slug: "tftp"
+slug: "grub_tftp"
 init: false
+stdin: true
+startup: services
 arch:
   - aarch64
   - amd64
@@ -12,3 +14,18 @@ arch:
 
 ports:
   69/udp: 69
+
+options:
+  configs:
+    - id: 'ubuntu'
+      message:
+        Hello from Ubuntu!
+    - id: 'windows'
+      message:
+        Hello from Windows!
+    - id: 'bios'
+      message:
+        Hello from BIOS!
+schema:
+  configs:
+    - id: str
