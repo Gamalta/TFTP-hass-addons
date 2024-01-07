@@ -26,8 +26,8 @@ while read -r input; do
             continue
         fi
 
-        sed -i "s/GRUB_DEFAULT=.*/GRUB_DEFAULT=$GRUB_DEFAULT/" /srv/tftp/grub.cfg
-        sed -i "s/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=$GRUB_TIMEOUT/" /srv/tftp/grub.cfg
+        sed -i "s/^set default=.*/set default=$GRUB_DEFAULT/" /srv/tftp/grub.cfg
+        sed -i "s/^set timeout=.*/set timeout=$GRUB_TIMEOUT/" /srv/tftp/grub.cfg
 
         bashio::log.info "The grub.cfg has been updated successfully to $ID"
     done
