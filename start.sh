@@ -18,10 +18,10 @@ while read -r input; do
 
     ADRESS_MAC=$(bashio::config 'adress_mac')
 
-    for config in $(bashio::config 'configs|keys'); do
-        ID=$(bashio::config "configs[${config}].id")
-        GRUB_DEFAULT=$(bashio::config "configs[${config}].grub_default")
-        GRUB_TIMEOUT=$(bashio::config "configs[${config}].grub_timeout")
+    for config in $(bashio::config 'configs.options|keys'); do
+        ID=$(bashio::config "configs.options[${config}].id")
+        GRUB_DEFAULT=$(bashio::config "configs.options[${config}].grub_default")
+        GRUB_TIMEOUT=$(bashio::config "configs.options[${config}].grub_timeout")
   
         # Not the correct id
         if ! bashio::var.equals "$ID" "$input"; then
