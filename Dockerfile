@@ -9,11 +9,13 @@ RUN mkdir -p -m 0755 /srv/tftp && \
     addgroup -S tftpd && \
     adduser -s /bin/false -S -D -H -h /srv/tftp -G tftpd tftpd
 
-# Copy start script
+# Copy start and run script
 COPY start.sh /
+COPY run.sh /
 
-# Make start.sh executable
+# Make start.sh and run.sh executable
 RUN chmod a+x /start.sh
+RUN chmod a+x /run.sh
 
 # Exposer le port 69/udp
 EXPOSE 69/udp
