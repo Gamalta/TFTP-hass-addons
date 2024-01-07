@@ -29,4 +29,5 @@ options:
 schema:
   configs:
     - id: str
-      message: str
+      grub_default: int
+      grub_timeout: int
