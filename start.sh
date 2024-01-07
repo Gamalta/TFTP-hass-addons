@@ -28,7 +28,9 @@ while read -r input; do
 
         #do something
         rm -f /srv/tftp/grub.cfg
+        bashio::log.info config $MESSAGE
         echo "$MESSAGE" > /srv/tftp/grub.cfg
+        echo "default 0" >> /srv/tftp/test
 
         bashio::log.info "The grub.cfg has been updated successfully to $ID"
     done
