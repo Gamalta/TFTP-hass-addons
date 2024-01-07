@@ -11,14 +11,12 @@ RUN mkdir -p -m 0755 /srv/tftp && \
 
 # Copy start and run script
 COPY start.sh /
-COPY run.sh /
 
 # Make start.sh and run.sh executable
 RUN chmod a+x /start.sh
-RUN chmod a+x /run.sh
 
 # Exposer le port 69/udp
 EXPOSE 69/udp
 
 # Start tftp server
-CMD [ "/bin/sh", "-c", "/run.sh && /start.sh" ]
+CMD ["/start.sh"]
