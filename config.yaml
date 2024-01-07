@@ -12,6 +12,7 @@ arch:
   - armv7
   - i386
 
+host_network: true
 ports:
   69/udp: 69
 
