@@ -5,7 +5,7 @@ echo " Starting tftpd,                        "
 echo "                                        "
 echo "Starting server."
 echo "Sharing files:"
-tree /srv/tftp
+ls /srv/tftp
 echo "                                        "
 echo "                                        "
 echo "----------------------------------------"

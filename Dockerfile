@@ -1,8 +1,8 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-# Install tftp-hpa and tree
-RUN apk add --no-cache tftp-hpa tree
+# Install tftp-hpa
+RUN apk add --no-cache tftp-hpa
 
 # Create tftp server directory, system group and user own tftp server directory
 RUN mkdir -p -m 0755 /srv/tftp && \
