@@ -1,8 +1,8 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-# Install tftp-hpa and wakeonlan
-RUN apk add --no-cache tftp-hpa wakeonlan
+# Install tftp-hpa and awake
+RUN apk add --no-cache tftp-hpa awake
 
 # Create tftp server directory, system group and user own tftp server directory
 RUN mkdir -p -m 0755 /srv/tftp && \

@@ -32,7 +32,7 @@ while read -r input; do
         sed -i "s/^set timeout=.*/set timeout=$GRUB_TIMEOUT/" /srv/tftp/grub.cfg
 
         bashio::log.info "The grub.cfg has been updated successfully to $ID"
-        wakeonlan $ADRESS_MAC
+        awake $ADRESS_MAC
         bashio::log.info "Sending wake on lan magic packet to $ADRESS_MAC"
 
     done
