@@ -18,14 +18,14 @@ ports:
 options:
   configs:
     - id: 'ubuntu'
-      message:
-        Hello from Ubuntu!
+      grub_default: 0
+      grub_timeout: 10
     - id: 'windows'
-      message:
-        Hello from Windows!
+      grub_default: 1
+      grub_timeout: 10
     - id: 'bios'
-      message:
-        Hello from BIOS!
+      grub_default: 2
+      grub_timeout: 10
 schema:
   configs:
     - id: str
