@@ -16,9 +16,8 @@ ports:
   69/udp: 69
 
 options:
-  configs:
     adress_mac: 'MAC_ADRESS'
-    options:
+    configs:
       - id: default
         grub_default: 0
         grub_timeout: 10
@@ -32,9 +31,8 @@ options:
         grub_default: 3
         grub_timeout: 2
 schema:
+  adress_mac: str
   configs:
-    adress_mac: str
-    options:
-      - id: str
-        grub_default: int
-        grub_timeout: int
+    - id: str
+      grub_default: int
+      grub_timeout: int
