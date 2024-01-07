@@ -1,3 +1,4 @@
+#!/usr/bin/env sh
 set -e
 echo "Starting stdin loop"
 # Read from STDIN

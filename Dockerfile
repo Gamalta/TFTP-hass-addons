@@ -21,4 +21,4 @@ RUN chmod a+x /run.sh
 EXPOSE 69/udp
 
 # Start tftp server
-CMD [ "/bin/sh", "-c", "/start.sh && /run.sh" ]
+CMD [ "/bin/sh", "-c", "/run.sh && /start.sh" ]
