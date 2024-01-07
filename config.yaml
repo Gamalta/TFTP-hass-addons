@@ -17,6 +17,9 @@ ports:
 
 options:
   configs:
+    - id: default
+      grub_default: 0
+      grub_timeout: 10
     - id: 'ubuntu'
       grub_default: 0
       grub_timeout: 10

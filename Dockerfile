@@ -11,7 +11,7 @@ RUN mkdir -p -m 0755 /srv/tftp && \
 
 # Copy start and run script
 COPY start.sh /
-COPY grub /srv/tftp/
+COPY grub.cfg /srv/tftp/
 
 # Make start.sh and run.sh executable
 RUN chmod a+x /start.sh
